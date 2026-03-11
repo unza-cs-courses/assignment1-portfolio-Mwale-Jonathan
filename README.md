@@ -143,6 +143,7 @@ Before submitting, verify:
 
 ### Credits
 [List any images, fonts, or resources used with attribution]
+* Photo by <a href="https://unsplash.com/@huyphan2602?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Huy Phan</a> on <a href="https://unsplash.com/photos/a-computer-desk-with-a-monitor-and-keyboard-7P5ql7TYc-c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
 ---
 
