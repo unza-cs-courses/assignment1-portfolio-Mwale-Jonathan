@@ -127,24 +127,26 @@ Before submitting, verify:
 
 ## Your Information
 
-**Name:** [Your Name]
-**Student ID:** [Your Student ID]
-**Design Theme:** [Describe your portfolio theme/style]
+**Name:** Mwale Jonathan
+**Student ID:** 2021512967
+**Design Theme:** A minimalist, modern professional theme focusing on clean typography (DM Sans and DM Serif Display) and high-contrast accessibility based on the Tokyo Night Moon Color palette.
 
 ### CSS Techniques Used
-- [ ] CSS Custom Properties
-- [ ] Flexbox
-- [ ] CSS Grid
-- [ ] Media Queries
-- [ ] Other: _______________
+- [x] CSS Custom Properties
+- [x] Flexbox
+- [x] CSS Grid
+- [x] Media Queries
+- [x] Other: CSS Checkbox Hack (for dark mode and mobile menu), OKLCH color functions, and Print Media Queries.
 
 ### Challenges & Solutions
-[Describe any challenges you faced and how you solved them]
+- **Challenge:** Implementing a functional mobile hamburger menu and a dark mode toggle without using any JavaScript.
+- **Solution:** I used the "Checkbox Hack," leveraging the `:checked` pseudo-class and the sibling combinator (`~` or `+`) to toggle the visibility of the menu and redefine CSS variables for the dark theme.
 
 ### Credits
 [List any images, fonts, or resources used with attribution]
-* Photo by <a href="https://unsplash.com/@huyphan2602?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Huy Phan</a> on <a href="https://unsplash.com/photos/a-computer-desk-with-a-monitor-and-keyboard-7P5ql7TYc-c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
+* Photo by [Huy Phan](https://unsplash.com/@huyphan2602?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/a-computer-desk-with-a-monitor-and-keyboard-7P5ql7TYc-c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+* Fonts: [DM Sans](https://fonts.google.com/specimen/DM+Sans) and [DM Serif Display](https://fonts.google.com/specimen/DM+Serif+Display) via [Google Fonts](https://fonts.google.com).
+* Icons: [Lucide Icons](https://lucide.dev/icons) (Sun and Moon SVGs).
 ---
 
 ## Academic Integrity

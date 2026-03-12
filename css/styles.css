@@ -64,6 +64,10 @@ DO NOT use CSS frameworks (Bootstrap, Tailwind, etc.)
 
     /* Extra */
     --header-height: 64px;
+    --bar-height: 4px;
+    --bar-width: 30px;
+    --hamburger-gap: 4px;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 }
 
 /* ============================================================
@@ -208,7 +212,7 @@ ul {
     background: var(--color-background-alt);
     padding: 0;
     box-shadow: none;
-    z-index: 1000;
+    z-index: 100;
     border: 1px solid var(--color-border);
     height: var(--header-height);
     display: flex;
@@ -224,6 +228,10 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-sm);
 }
 
 .nav__logo a {
@@ -245,15 +253,30 @@ ul {
     /* TODO: Style navigation menu
        Mobile: Stack vertically or hide
        Desktop: Horizontal with Flexbox */
-       display: none;
+       /* display: none; */
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    background-color: var(--color-background-alt);
+    width: 100%;
+    /* padding: var(--spacing-sm) var(--spacing-sm); */
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    transition: height var(--transition-normal);
+    height: 0;
+    overflow: hidden;
 }
 
 .nav__menu a {
     /* TODO: Navigation link styles */
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
 }
 
 .nav__menu a:hover {
     /* TODO: Navigation link hover */
+    color: var(--color-secondary);
 }
 
 /* ============================================================
@@ -264,7 +287,7 @@ ul {
     /* TODO: Style hero section
        Consider: min-height, background, centering content
        Use Flexbox for centering */
-    min-height: 100vh;
+    min-height: 100dvh;
     width: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero.jpg");
     background-position: center;
@@ -567,6 +590,20 @@ h2 {
        - Adjust typography sizes
        - Change layouts (Grid columns, Flexbox directions)
        - Adjust spacing */
+    .nav__menu {
+        height: auto;
+        width: auto;
+        position: static;
+        flex-direction: row;
+        overflow: auto;
+    }
+
+    .container {
+        padding: 0 var(--spacing-xl);
+    }
+    .projects__grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* Desktop (1024px and up) */
@@ -575,6 +612,17 @@ h2 {
        - Further layout adjustments
        - Larger typography
        - More spacing */
+    .about__content {
+        grid-template-columns: 1fr 3fr;
+        gap: var(--spacing-md);
+    }
+
+    .projects__grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .nav__menu {
+        gap: var(--spacing-lg);
+    }
 }
 
 /* Large Desktop (1200px and up) */
@@ -586,3 +634,136 @@ h2 {
    ADDITIONAL STYLES
    TODO: Add any additional styles you need
    ============================================================ */
+
+/* Hamburger Icon */
+.hamburger__menu {
+    --x-width: calc(var(--hamburger-height) * sqrt(2));
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    cursor: pointer;
+}
+
+.hamburger__menu::after,
+.hamburger__menu::before,
+.hamburger__menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--color-text);
+    border-radius: var(--border-radius);
+    transform-origin: left center;
+}
+
+.hamburger__menu input {
+    appearance: none;
+    outline: none;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), width var(--transition-fast), translate var(--transition-normal);
+}
+
+.hamburger__menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.hamburger__menu:has(input:checked)::before {
+    rotate:  45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger__menu:has(input:checked)::after {
+    rotate:  -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+/* Toggle mobile menu  */
+.hamburger__menu:has(input:checked) + .nav__menu {
+    height: fit-content;
+    padding: var(--spacing-md) var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+    .hamburger__menu {
+        display: none;
+    }
+}
+
+/* Dark mode colors */
+.theme-toggle {
+    position: fixed;
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+    z-index: 110;
+    background-color: var(--color-background-alt);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    cursor: pointer;
+}
+#theme-toggle {
+    display: none;
+}
+#theme-toggle:checked ~ .page {
+    --color-text: #e5e5e5;
+    --color-text-light: #a3a3a3;
+    --color-background: #0a0a0a;
+    --color-background-alt: #171717;
+    --color-border: #262626;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+
+.sun svg,
+.moon svg{
+    width: 24px;
+}
+.sun {
+    display: none;
+}
+
+.moon {
+    display: inline-block;
+}
+
+#theme-toggle:checked ~ .page .theme-toggle .sun {
+    display: inline-block;
+}
+
+#theme-toggle:checked ~ .page .theme-toggle .moon {
+    display: none;
+}
+
+/* ============================================================
+   PRINT STYLES (PORTRAIT OPTIMIZED)
+   ============================================================ */
+@media print {
+    /* 1. Force Portrait Orientation and Set Margins */
+    @page {
+        size: portrait;
+        margin: 1.5cm;
+    }
+
+    /* 2. Reset colors and typography for paper */
+    *,
+    *::before,
+    *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        transition: none !important;
+    }
+
+    body {
+        background-color: #fff;
+        font-size: 11pt; /* Professional document font size */
+        line-height: 1.4;
+    }
+}
