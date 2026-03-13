@@ -129,7 +129,7 @@ Before submitting, verify:
 
 **Name:** Mwale Jonathan
 **Student ID:** 2021512967
-**Design Theme:** A minimalist, modern professional theme focusing on clean typography (DM Sans and DM Serif Display) and high-contrast accessibility based on the Tokyo Night Moon Color palette.
+**Design Theme:** A minimalist, modern professional theme focusing on clean typography (DM Sans and DM Serif Display) and high-contrast accessibility based on the Green and yellow color palette.
 
 ### CSS Techniques Used
 - [x] CSS Custom Properties
