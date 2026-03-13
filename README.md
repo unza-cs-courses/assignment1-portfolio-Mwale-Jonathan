@@ -112,24 +112,24 @@ The following are checked automatically on each push:
 
 Before submitting, verify:
 
-- [ ] All 4 sections are complete (Home, About, Projects, Contact)
-- [ ] HTML validates with no errors
-- [ ] CSS uses custom properties (variables)
-- [ ] Flexbox is used for at least one component
-- [ ] CSS Grid is used for at least one component
-- [ ] Site is responsive at all breakpoints
-- [ ] All images have alt text
-- [ ] Form inputs have labels
-- [ ] Screenshots added to `/screenshots` folder
-- [ ] README updated with your information
+- [x] All 4 sections are complete (Home, About, Projects, Contact)
+- [x] HTML validates with no errors
+- [x] CSS uses custom properties (variables)
+- [x] Flexbox is used for at least one component
+- [x] CSS Grid is used for at least one component
+- [x] Site is responsive at all breakpoints
+- [x] All images have alt text
+- [x] Form inputs have labels
+- [x] Screenshots added to `/screenshots` folder
+- [x] README updated with your information
 
 ---
 
 ## Your Information
 
-**Name:** Mwale Jonathan
-**Student ID:** 2021512967
-**Design Theme:** A minimalist, modern professional theme focusing on clean typography (DM Sans and DM Serif Display) and high-contrast accessibility based on the Green and yellow color palette.
+- **Name:** Mwale Jonathan
+- **Student ID:** 2021512967
+- **Design Theme:** A minimalist, modern professional theme focusing on clean typography (DM Sans and DM Serif Display) and high-contrast accessibility based on the Green and yellow color palette.
 
 ### CSS Techniques Used
 - [x] CSS Custom Properties
