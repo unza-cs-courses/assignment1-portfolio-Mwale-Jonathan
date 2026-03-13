@@ -28,7 +28,7 @@ DO NOT use CSS frameworks (Bootstrap, Tailwind, etc.)
 :root {
     /* Colors - TODO: Customize your color palette */
     --color-primary: oklch(60% .118 184.704);/* Your primary color */
-    --color-primary-dark: oklch(39.8% .07 227.392);/* Darker shade */
+    --color-primary-dark: oklch(42% .08 185.04);/* Darker shade */
     --color-secondary: oklch(82.8% .189 84.429);/* Secondary color */
     --color-text: #0a0a0a;/* Main text color */
     --color-text-light: #737373;/* Lighter text */
@@ -741,21 +741,18 @@ h2 {
 }
 
 /* ============================================================
-   PRINT STYLES (PORTRAIT OPTIMIZED)
+   PRINT STYLES
    ============================================================ */
 @media print {
-    /* 1. Force Portrait Orientation and Set Margins */
     @page {
-        size: portrait;
+        size: A4 portrait;
         margin: 1.5cm;
     }
 
-    /* 2. Reset colors and typography for paper */
     *,
     *::before,
     *::after {
-        background: transparent !important;
-        color: #000 !important;
+        color: #0a0a0a !important;
         box-shadow: none !important;
         text-shadow: none !important;
         transition: none !important;
@@ -763,7 +760,149 @@ h2 {
 
     body {
         background-color: #fff;
-        font-size: 11pt; /* Professional document font size */
-        line-height: 1.4;
+        font-size: 11pt;
+        line-height: 1.5;
+        font-family: "DM Sans", sans-serif;
+    }
+
+    .header,
+    .theme-toggle,
+    .hamburger__menu,
+    .contact__form,
+    img,
+    .btn {
+        display: none !important;
+    }
+
+    .project-card .btn {
+        display: inline !important;
+        padding: 0 !important;
+        border: none !important;
+        background: none !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        text-decoration: underline;
+        text-align: start;
+    }
+
+    .project-card__links {
+        flex-direction: column;
+        gap: var(--spacing-xs) !important;
+        justify-content: start !important;
+        align-items: start;
+    }
+
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    main {
+        margin-top: 0 !important;
+    }
+
+    section {
+        padding: 2pt 0 !important;
+        border: none !important;
+    }
+
+    .hero {
+        min-height: auto !important;
+        height: fit-content;
+        flex-direction: column;
+    }
+
+    .hero__content h1 {
+        font-size: var(--font-size-3xl);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero__tagline {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .about__content,
+    .projects__grid {
+        display: block !important;
+        margin-top: 0;
+
+    }
+
+    .about__text h3,
+    h2 {
+        text-align: left !important;
+        text-transform: uppercase;
+        font-size: 14pt;
+        border-bottom: 1px solid #eee;
+        margin-top: 15pt;
+    }
+
+    .skills-list {
+        display: block !important;
+    }
+
+    .skills-list li {
+        display: inline-block;
+        border: none !important;
+        padding: 0 !important;
+        margin-right: 10pt;
+    }
+
+    .skills-list li::after {
+        content: ",";
+    }
+
+    .skills-list li:last-child::after {
+        content: "";
+    }
+
+    .project-card {
+        border: none !important;
+        box-shadow: none !important;
+        margin-bottom: 15pt;
+    }
+
+    .project-card__content {
+        padding: 0 !important;
+    }
+
+    .project-card__content h3 {
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        font-style: italic;
+        color: #333 !important;
+    }
+
+    footer p {
+        display: none;
+        padding: 0;
+    }
+
+    .footer {
+        padding: 0 !important;
+    }
+
+    .footer .container {
+        align-items: start;
+    }
+
+    .footer__social {
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: var(--spacing-sm);
+    }
+
+    .footer__social::after {
+        content: "Email: jonathan.mwale@cs.unza.zm";
+        font-size: var(--font-size-sm);
     }
 }
